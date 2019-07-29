@@ -21,6 +21,10 @@
 	margin-right: 10px;
 }
 
+#h_s {
+	overflow: hidden;
+}
+
 .main_left li {
 	float: left;
 }

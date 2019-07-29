@@ -17,7 +17,6 @@ $(function(){
 		$("#zh").val("");
 	});
 	
-	
 	$("#zh").blur(function(){
 		var zhanghao = $(this).val();
 		var pd = /^[a-zA-Z0-9_-]{4,16}$/;
@@ -39,6 +38,12 @@ $(function(){
 			open("index.html");
 		}else{
 			alert("登录失败");
+			if(pd.test(zhanghao)==false){
+				alert("账号错误");
+				return false;
+			}else if(yzm!=num){
+				alert("验证码错误")
+			}
 		}
 	})
 })

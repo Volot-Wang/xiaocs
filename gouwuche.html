@@ -151,12 +151,12 @@
 					</li>
 					<li class="sp_4">
 						<!--<a href="#"><span class="sp4_jia">-</span></a>-->
-						<input id="jian" type="button" class="sp4_jia" name="jia" value="-" />
+						<input id="jian" type="button" class="sp4_jia" name="jia" value="-" onclick="change(this,-1)"/>
 						<span id="sp"><input id="num" type="text" value="1"/></span>
-						<input id="jia" type="button" class="sp4_jian" name="jian" value="+" />
+						<input id="jia" type="button" class="sp4_jian" name="jian" value="+" onclick="change(this,1)"/>
 						<!--<a href="#"><span class="sp4_jian">+</span></a>-->
 					</li>
-					<li class="sp_5">￥<label>249</label></li>
+					<li class="sp_5">￥<label id="xj">249</label></li>
 					<li class="sp_6">
 						<ul>
 							<li><a href="#">移入收藏夹</a></li>

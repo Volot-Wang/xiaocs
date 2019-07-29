@@ -48,8 +48,8 @@ $(function(){
 		if(index>=0){
 			$(".lunbodatu li img").attr({"src":"img/text_"+index+".jpg"});
 		}else{
-			index++;
-			alert("已经是第一张图了！");
+			index = index+8;
+			$(".lunbodatu li img").attr({"src":"img/text_"+index+".jpg"});
 		}
 	});
 	$(".xia").click(function(){
@@ -58,8 +58,8 @@ $(function(){
 		if(index<=7){
 			$(".lunbodatu li img").attr({"src":"img/text_"+index+".jpg"});
 		}else{
-			index--;
-			alert("最后一张图");
+			index -= index;
+			$(".lunbodatu li img").attr({"src":"img/text_"+index+".jpg"});
 		}
 	});
 	
@@ -107,8 +107,33 @@ $(function(){
 	$(function(){
 	    timer(intDiff);
 	}); 
-
 	
+	//跑马灯
+	var marginTop=0;
+    var obj=true;
+    $("#h_h").mouseenter(function(){
+        obj=false;
+    })
+    $("#h_h").mouseleave(function(){
+        obj=true;
+    })
+    setInterval(function(){
+        if(obj==true) {
+            $("#h_h").children("li").first().animate(
+                {"margin-top": marginTop--}, 0,
+                function () {
+                    var $first = $(this);
+                    if (!$first.is(":animated")) {
+                        if ((-marginTop) > $first.height()) {
+                            $first.css({"margin-top": 0}).appendTo($("#h_h"));
+                            marginTop = 0;
+                            obj = true;
+                        }
+                    }
+                }
+            )
+        }
+    },100);
 });
 
 //倒计时

@@ -16,6 +16,7 @@ $(document).ready(function(){
 		})
 		return zhjzh;
 	};
+	
 	totalPrices();
 	//删除
 	$("#sc").click(function(){
@@ -41,13 +42,25 @@ $(document).ready(function(){
 			alert("修改成功！您的商品总价格为"+ x +"元");
 		}
 	});
-	$(".zj_9 a").click(function(){
-			alert("下单失败！")
-		})
 	
-	$(".sp_1 input").click(function(){
-		$(".zj_9 a").click(function(){
-			alert("下单成功！")
-		})
-	})
 });
+
+function change(btn,n){
+	var arrye = btn.parentNode.getElementsByTagName("input");
+	var num = parseInt(arrye[1].value);
+	arrye[1].value = num+n;
+	num = arrye[1].value;
+	if(num<1&&n<0){
+		arrye[1].value = 1;
+		alert("商品数量不能少于1");
+		return;
+	}else if(num>100&&n>0){
+		arrye[1].value = 100;
+		alert("库存不足！");
+		return;
+	}
+	var zongjia = document.getElementById("zhehoujia");
+	var xiaoji = parseFloat(document.getElementById("xj").innerHTML);
+	zongjia.innerHTML = (num*xiaoji).toFixed(2);
+	
+}
